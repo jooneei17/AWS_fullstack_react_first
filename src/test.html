@@ -12,5 +12,18 @@
     <button onclick="alert('executed')">
     Click me
     </button>
+    <input name="message" placeholder="아무거나 입력해보세요">
+    <script>
+        document.querySelector("button").onclick = function() {
+            alert("default ")
+        }
+        document.querySelector("input[name='message']").onchange = function(e) {
+            console.log(e)
+            console.log(this)
+        }
+    </script>
+
+    
 </body>
+
 </html>
