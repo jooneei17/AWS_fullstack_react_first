@@ -9,7 +9,7 @@ function reducer(state, action) {
 
 const Info = () => {
   const [state, dispatch] = useReducer(reducer, { name: "", nickname: "" });
-  const [name, nickname] = state;
+  const { name, nickname } = state;
   //     const [name, setName] = useState("");
   //   const [nickname, setNickname] = useState("");
   //   const onChangeName = (e) => {
@@ -22,8 +22,8 @@ const Info = () => {
   return (
     <div>
       <div>
-        <input value={name} onChange={onChange} />
-        <input value={nickname} onChange={onChange} />
+        <input name="name" value={name} onChange={onChange} />
+        <input name="nickname" value={nickname} onChange={onChange} />
       </div>
       <div>
         <div>
