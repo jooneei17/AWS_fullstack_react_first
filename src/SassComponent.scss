@@ -1,5 +1,12 @@
+// @import 'utils'
+@import '~include-media/dist/include-media';
+@import '~open-color/open-color';
 .SassComponent{
     display: flex;
+    background: $oc-gray-2;
+    @include media("<768px"){
+        background: $oc-gray-9;
+    }
     // .SassComponent .box
     .box {
         background: red;
@@ -31,5 +38,4 @@
             background: black;
         }
     }
-
 }
