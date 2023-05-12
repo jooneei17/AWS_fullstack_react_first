@@ -63,19 +63,35 @@ const Category = styled(NavLink)`
     }
   }
 
+  ${(props) =>
+    props.active &&
+    css`
+      font-weight: 600;
+      border-bottom: 2px solid #22b8cf;
+      color: #22b8cf;
+      &:hover {
+        color: #3bc9db;
+      }
+    `}
+
   & + & {
     margin-left: 1rem;
   }
 `;
 
-const Categories = () => {
+const Categories = ({ onSelect, category }) => {
   return (
     <CategoriesBlock>
       {categories.map((c) => (
         <Category
           key={c.name}
+<<<<<<< HEAD
           //   className={({ isActive }) => (isActive ? 'active' : undefined)}
           to={c.name === 'all' ? '/' : `/${c.name}`}
+=======
+          active={category === c.name}
+          onClick={() => onSelect(c.name)}
+>>>>>>> 6c5a164dfda71039d24f69329ac22f565c8f9e40
         >
           {c.text}
         </Category>
