@@ -85,13 +85,8 @@ const Categories = ({ onSelect, category }) => {
       {categories.map((c) => (
         <Category
           key={c.name}
-<<<<<<< HEAD
           //   className={({ isActive }) => (isActive ? 'active' : undefined)}
           to={c.name === 'all' ? '/' : `/${c.name}`}
-=======
-          active={category === c.name}
-          onClick={() => onSelect(c.name)}
->>>>>>> 6c5a164dfda71039d24f69329ac22f565c8f9e40
         >
           {c.text}
         </Category>
