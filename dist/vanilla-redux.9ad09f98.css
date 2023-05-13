@@ -1,3 +1,13 @@
+/* .toggle .active{
+    background: yellow;
+}
+.toggle {
+    border: 2px solid black;
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    box-sizing: border-box;
+} */
 .toggle {
     border: 2px solid black;
     width: 64px;
@@ -6,7 +16,7 @@
     box-sizing: border-box;
 }
 
-.toggle .active {
+.toggle.active {
     background: yellow;
 }
 
