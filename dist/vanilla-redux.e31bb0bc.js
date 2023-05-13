@@ -867,99 +867,19 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); } // import { createStore } from "redux";
-// console.log("hello parcel");
-// //DOM 레퍼런스 만들기
-// const divToggle = document.querySelector(".toggle");
-// const counter = document.querySelector("h1");
-// const btnIncrease = document.querySelector("#increase");
-// const btnDecrease = document.querySelector("#decrease");
-// //액션 타입과 액션 생성 함수 정의
-// const TOGGLE_SWITCH = "TOGGLE_SWITCH";
-// const INCREASE = "INCREASE";
-// const DECREASE = "DECREASE";
-// const toggleSwitch = () => ({ type: TOGGLE_SWITCH });
-// const increase = (difference) => ({ type: INCREASE, difference });
-// const decrease = () => ({ type: DECREASE });
-// // 초깃값 설정
-// const initialState = {
-//   toggle: false,
-//   counter: 0,
-// };
-// //리듀서 함수 정의
-// //state가 undefined일 때는 initialState를 기본 값으로 사용
-// function reducer(state = initialState, action) {
-//   //action.type에 따라 다른 작업을 처리
-//   switch (action.type) {
-//     case TOGGLE_SWITCH:
-//       return {
-//         ...state, //불변성 유지
-//         toggle: !state.toggle,
-//       };
-//     case INCREASE:
-//       return {
-//         ...state,
-//         counter: state.counter + action.difference,
-//       };
-//     case DECREASE:
-//       return {
-//         ...state,
-//         counter: state.counter - 1,
-//       };
-//     default:
-//       return state;
-//   }
-// }
-// //스토어 만들기
-// const store = createStore(reducer);
-// //render 함수 만들기
-// const render = () => {
-//   const state = store.getState(); //현재 상태 불러옴
-//   //토글 처리
-//   if (state.toggle) {
-//     console.log("add");
-//     divToggle.classList.add("active");
-//     console.log(divToggle.classList);
-//   } else {
-//     console.log("remove");
-//     divToggle.classList.remove("active");
-//     console.log(divToggle.classList);
-//   }
-//   //카운터 처리
-//   counter.innerText = state.counter;
-// };
-// // const listener = () => {
-// //   console.log("상태가 업데이트 됨");
-// // };
-// // const unsubscribe = store.subscribe(listener);
-// // unsubscribe(); // 추후 구독을 비활성화할 때 함수를 호출
-// render();
-// store.subscribe(render);
-// divToggle.onclick = () => {
-//   console.log("토글");
-//   store.dispatch(toggleSwitch());
-// };
-// btnIncrease.onclick = () => {
-//   console.log("증가");
-//   store.dispatch(increase(1));
-// };
-// btnDecrease.onclick = () => {
-//   console.log("감소");
-//   store.dispatch(decrease());
-// };
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+console.log("hello parcel");
+
+//DOM 레퍼런스 만들기
 var divToggle = document.querySelector(".toggle");
 var counter = document.querySelector("h1");
 var btnIncrease = document.querySelector("#increase");
 var btnDecrease = document.querySelector("#decrease");
 
-// 액션 이름
-// 이름은 문자열 형태로, 주로 대문자로 작성한다.
+//액션 타입과 액션 생성 함수 정의
 var TOGGLE_SWITCH = "TOGGLE_SWITCH";
 var INCREASE = "INCREASE";
 var DECREASE = "DECREASE";
-
-// 액션 생성 함수
-// type 값을 반드시 가지고 있어야 한다.
 var toggleSwitch = function toggleSwitch() {
   return {
     type: TOGGLE_SWITCH
@@ -977,27 +897,22 @@ var decrease = function decrease() {
   };
 };
 
-// 초기 값 설정
+// 초깃값 설정
 var initialState = {
   toggle: false,
   counter: 0
 };
 
-// 리듀서 함수 정의
-// 리듀서 함수가 맨 처음 호출될 때 state 값은 undefined 이다.
-// state가 undefined라면 initailState를 기본 값으로 설정한다.
-
-// 불변성 유지를 해야하는데 구조가 깊어지면 굉장히 번거롭고
-// 가독성이 저하되기 때문에, 리덕스 상태는 최대한
-// 깊지 않은 구조로 설게를 하고, 만약 깊어지거나 배열도 함께
-// 다루는 경우 immer를 사용하면 더욱 쉽게 사용이 가능하다.
+//리듀서 함수 정의
+//state가 undefined일 때는 initialState를 기본 값으로 사용
 function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  // action.type에 따른 분기 처리, 불변성 유지를 지켜주어야한다.
+  //action.type에 따라 다른 작업을 처리
   switch (action.type) {
     case TOGGLE_SWITCH:
       return _objectSpread(_objectSpread({}, state), {}, {
+        //불변성 유지
         toggle: !state.toggle
       });
     case INCREASE:
@@ -1013,23 +928,27 @@ function reducer() {
   }
 }
 
-// 스토어 생성, 인자는 리듀서 함수
+//스토어 만들기
 var store = (0, _redux.createStore)(reducer);
+//render 함수 만들기
 var render = function render() {
-  var state = store.getState(); // 현재 상태를 받아옴
-
+  var state = store.getState(); //현재 상태 불러옴
+  //토글 처리
   if (state.toggle) {
     divToggle.classList.add("active");
   } else {
     divToggle.classList.remove("active");
   }
+  //카운터 처리
   counter.innerText = state.counter;
 };
-render();
 
-// 스토어의 상태가 바뀔 때 마다 render함수를 호출한다.
-// 함수형태의 값을 전달한다.
-// 추후 액션이 발생하여 상태가 업데이트 될 때 마다 호출된다.
+// const listener = () => {
+//   console.log("상태가 업데이트 됨");
+// };
+// const unsubscribe = store.subscribe(listener);
+// unsubscribe(); // 추후 구독을 비활성화할 때 함수를 호출
+render();
 store.subscribe(render);
 divToggle.onclick = function () {
   store.dispatch(toggleSwitch());
@@ -1065,7 +984,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53233" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54973" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
